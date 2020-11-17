@@ -10,6 +10,10 @@ package joojub;
  * name, kor, eng, mat, sum, mean, grd
  * 학점기준은 수우미양가
  * 만점은 100점으로.
+ *
+ * 삼항연산자 : (조건식) ? : 참 : 거짓;
+ *
+ *
  */
 public class SungJukV1 {
 //    public class Student {
@@ -42,15 +46,23 @@ public class SungJukV1 {
 
         //처리
         sum = kor + eng + mat;
-        mean = sum / 3;
+        mean = (double)sum / 3;
+
+        grd = (mean >= 90) ? '수' :
+              (mean >= 80) ? '우' :
+              (mean >= 70) ? '미' :
+              (mean >= 60) ? '양' : '가';
+
+
 
         //결과출력
         System.out.println("이름 : " + name);
-        System.out.println("국어 :" + kor);
-        System.out.println("영어 :" + eng);
-        System.out.println("수학 :" + mat);
+        System.out.println("국어 : " + kor);
+        System.out.println("영어 : " + eng);
+        System.out.println("수학 : " + mat);
         System.out.println("----------");
-        System.out.println("총점 :" + sum);
-        System.out.println("평균 :" + mean);
+        System.out.println("총점 : " + sum);
+        System.out.println("평균 : " + mean);
+        System.out.println("학점 : " + grd);
     }
 }
