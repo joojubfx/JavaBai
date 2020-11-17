@@ -18,51 +18,45 @@ import java.util.Scanner;
  * 성적처리 결과 출력시 출력문을 하나만 사용하기로 함
  */
 public class SungJukV3 {
-//    public class Student {
-//        String name;
-//        int kor, eng, mat, sum, mean;
-//        char grd;
-//        String f
-//    }
 
     public static void main(String[] args) {
         //변수 선언
-        final int NUM = 3;
-        String name[] = new String[NUM];
-        int kor[] = new int[NUM];
-        int eng[] = new int[NUM];
-        int mat[] = new int[NUM];
-        int sum[] = new int[NUM];
-        double mean[] = new double[NUM];
-        char grd[] = new char[NUM];
-        String fmt = " 이름 : %s\n 국어 : %d\n 영어 : %d\n 수학 : %d\n 총점 : %d\n 평균 : %.2f\n 학점 : %c\n";
+        //배열변수 자료형 변수명[] = new 자료형[크기]
 
-        String result[] = new String[NUM];
+        String name[] = new String[3];
+        int kor[] = new int[3];
+        int eng[] = new int[3];
+        int mat[] = new int[3];
+        int sum[] = new int[3];
+        double mean[] = new double[3];
+        char grd[] = new char[3];
+
+        String fmt = " 이름 : %s\n 국어 : %d\n 영어 : %d\n 수학 : %d\n 총점 : %d\n 평균 : %.2f\n 학점 : %c\n";
         //처리
 
         //성적데이터를 입력 하기 위해 스캐너 클래스 초기화
         Scanner scn = new Scanner(System.in);
 
-        for (int i=0; i<=2; i++) {
+        for (int i=0; i<3; i++) {
             System.out.println((i+1) + "번째 학생 성적 입력중");
             System.out.print("이름  ");
-            name[i] = scn.next();
+            name[i] = scn.nextLine();
             System.out.print("한국어점수  ");
-            kor[i] = scn.nextInt();
+            kor[i] = Integer.parseInt(scn.nextLine());
             System.out.print("영어점수  ");
-            eng[i] = scn.nextInt();
+            eng[i] = Integer.parseInt(scn.nextLine());
             System.out.print("수학점수  ");
-            mat[i] = scn.nextInt();
+            mat[i] = Integer.parseInt(scn.nextLine());
+            //scn.skip("\r\n|[\r\n]");
+            }
+        //수학성적 입력시 같이 입력된 엔터키가 다음 데이터(이름) 입력시 입력값으로 자동으로 전달됨
+        //그런 상황을 해결하기 위해 미리 엔터키를 제거 하는 코드 삽입
 
+        for (int i=0; i<3; i++) {
             sum[i] = kor[i] + eng[i] + mat[i];
             mean[i] = (double) sum[i] / 3;
 
-        /*grd = (mean >= 90) ? '수' :
-              (mean >= 80) ? '우' :
-              (mean >= 70) ? '미' :
-              (mean >= 60) ? '양' : '가';*/
 
-            //학점계산은 switch문으로 처리
             switch ((int) mean[i] / 10) {
                 case 10:
                 case 9: grd[i] = '수'; break;
@@ -71,22 +65,12 @@ public class SungJukV3 {
                 case 6: grd[i] = '양'; break;
                 default: grd[i] = '가';
             }
-            //Math.round(값) : 반올림
-            //String.value0f() : 숫자를 문자로 변환
-
 
             mean[i] = Math.round(mean[i] * 100) / 100.0;
 
-            result[i] = String.format(fmt, name[i], kor[i], eng[i], mat[i], sum[i], mean[i], grd[i]);
-
-            //결과출력
-
-            // 문자열 연결 연산자로 문장을 만드는 경우 String 자료형의 특성때문에 성능저하 발생
-
-
         }
-        for (int j=0; j<=2; j++) {
-            System.out.println(result[j]);        }
-
+        for (int i=0; i<3; i++) {
+            System.out.printf(fmt, name[i], kor[i], eng[i], mat[i], sum[i], mean[i], grd[i]);
+        }
     }
 }

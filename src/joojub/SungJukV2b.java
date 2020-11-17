@@ -81,6 +81,9 @@ public class SungJukV2b {
             default : grd = '가';
         }
         //Math.round(값) : 반올림
+        //String.value0f() : 숫자를 문자로 변환
+
+
         mean = Math.round(mean*100)/100.0;
 
         result = String.format(fmt, name, kor, eng, mat, sum, mean, grd);
