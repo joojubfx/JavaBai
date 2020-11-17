@@ -42,11 +42,14 @@ public class SungJukV2 {
         int sum = 0;
         double mean = 0.0;
         char grd = '가';
-        Scanner scn = new Scanner(System.in);
 
         //처리
-        //System.out.println("이름");
-        //name = scn.nextInt();
+
+        //성적데이터를 입력 하기 위해 스캐너 클래스 초기화
+        Scanner scn = new Scanner(System.in);
+
+        System.out.print("이름");
+        name = scn.nextLine();
         System.out.println("한국어점수");
         kor = scn.nextInt();
         System.out.println("영어점수");
@@ -63,15 +66,17 @@ public class SungJukV2 {
               (mean >= 70) ? '미' :
               (mean >= 60) ? '양' : '가';*/
 
+        //학점계산은 switch문으로 처리
         switch ((int)mean/10) {
+            case 10 :
             case 9 : grd = '수'; break;
             case 8 : grd = '우'; break;
             case 7 : grd = '미'; break;
-            case 6: grd = '양'; break;
+            case 6 : grd = '양'; break;
             default : grd = '가';
         }
-
-
+        //String.format(형식지정자, 변수들)
+        mean = Double.parseDouble(String.format("%.1f", mean));
 
         //결과출력
         System.out.println("이름 : " + name);
@@ -80,7 +85,8 @@ public class SungJukV2 {
         System.out.println("수학 : " + mat);
         System.out.println("----------");
         System.out.println("총점 : " + sum);
-        System.out.printf("평균 : %3f" , mean);
+        System.out.println("평균 : " + mean);
+        //System.out.printf("평균 : %.1f\n", mean);
         System.out.println("학점 : " + grd);
     }
 }
