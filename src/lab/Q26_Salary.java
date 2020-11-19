@@ -22,7 +22,7 @@ public class Q26_Salary {
         Scanner scn_Marry = new Scanner(System.in);
         marry = scn_Marry.nextLine();
 
-        System.out.println(marry);
+        //System.out.println(marry);
 
         if (marry.equals("y") || marry.equals("Y")) {
             if (salary < 3000) {
