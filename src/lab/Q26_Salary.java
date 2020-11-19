@@ -33,7 +33,7 @@ public class Q26_Salary {
                 System.out.println("연봉 : "+salary+"\n세율 : 25%"+"\n세금 : "+tex);
             }
 
-        } else if (marry.equals("n") || marry.equals("n")) {
+        } else if (marry.equals("n") || marry.equals("N")) {
             if (salary < 6000) {
                 tex = salary/15;
                 System.out.println("연봉 : "+salary+"\n세율 : 15%"+"\n세금 : "+tex);

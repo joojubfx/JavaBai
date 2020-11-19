@@ -26,7 +26,5 @@ public class Q28_Gugudan {
                 System.out.println(num + "x" + i + "=" + num2);
             }
         }
-
-
     }
 }
