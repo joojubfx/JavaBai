@@ -36,8 +36,8 @@ public class Q79_Movie {
         this.sogae = sogae;
     }
 }
-
-public class Actor() {
+/*
+public class Actor {
     String name;
     String birth;
     String title;
@@ -54,7 +54,7 @@ public class Actor() {
     }
 }
 
-public class Director() {
+public class Director {
     String name;
     String birth;
     String title;
@@ -71,7 +71,7 @@ public class Director() {
     }
 }
 
-public class Company() {
+public class Company {
     String name;
     String address;
     String title;
@@ -84,4 +84,4 @@ public class Company() {
         this.address = address;
         this.title = title;
     }
-}
+}*/
