@@ -136,7 +136,7 @@ public class AdvCollection {
         //TreeSet<Integer> lotto = new TreeSet<>();
 
         while (lotto.size()<=6){
-            lotto.add((int)((Math.random() * 45)));
+            lotto.add((int)((Math.random() * 45)+1));
         }
         System.out.println(lotto);
     }
