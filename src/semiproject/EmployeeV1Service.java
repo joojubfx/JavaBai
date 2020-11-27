@@ -9,6 +9,8 @@ import java.util.*;
 public class EmployeeV1Service extends EmployeeV1GenericService {
     List<EmployeeVO> empldata = new ArrayList<>();
 
+    EmployeeVO emp = null;
+
     @Override
     /**
      * 인사정보 입력
@@ -20,7 +22,7 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
 
         //모든 정보는 일단 문자형으로 받되 필요에 따라 적절한 형변환을 해서 변수에 저장
 
-        EmployeeVO emp = new EmployeeVO(0, "", "", "","","","",0,0.0,0,0);
+        emp = new EmployeeVO(0, "", "", "","","","",0,0.0,0,0);
 
         Scanner scn = new Scanner(System.in);
 
@@ -74,16 +76,19 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
     public void readOneEmployee() {
         String fmt = "%8s %8s %8s %8s %8s %8s %8s %8s %8s %8s %8s\n";
 
-        EmployeeVO emp = new EmployeeVO();
+        //emp = new EmployeeVO();
 
         Scanner sc = new Scanner(System.in);
         System.out.println("조회할 사원번호를 입력하세요.");
-        emp.setEmpno(Integer.parseInt(sc.nextLine()));
+        //emp.setEmpno(Integer.parseInt(sc.nextLine()));
+        int epnum = Integer.parseInt(sc.nextLine());
 
-        for (EmployeeVO e : empldata) {
+        //for (EmployeeVO e : empldata) {
+        for (EmployeeVO emp : empldata) {
             //입력한 사원번호와 순회해서 읽어온 사원번호와 비교해서 일치하면 이것을 출력하기 위해 다른 변수에 저장함
-            if (e.getEmpno() == emp.getEmpno()) {
-                emp = e;
+            //if (e.getEmpno() == emp.getEmpno()) {
+            if (epnum == emp.getEmpno()) {
+            //    emp = e;
                 System.out.printf(fmt, emp.getEmpno(), emp.getFname(), emp.getLname(), emp.getEmail(), emp.getPhone(),
                         emp.getHdate(), emp.getJobid(), emp.getSal(), emp.getComm(), emp.getMgrid(), emp.getDeptid());
                 break;

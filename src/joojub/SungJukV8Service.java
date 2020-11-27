@@ -12,6 +12,9 @@ public class SungJukV8Service extends SungJukV8GenericService {
     //입력받은 모든 데이터를 동적배열에 저장
     List<SungJukV5VO> sjdata = new ArrayList<>();
 
+    // 입력받은 성적데이터를 저장하는 변수
+    SungJukV5VO sj = null;
+
 
     @Override
     /**
@@ -32,7 +35,7 @@ public class SungJukV8Service extends SungJukV8GenericService {
         mat = scn.nextInt();
 
         // 입력받은 데이터를
-        SungJukV5VO sj = new SungJukV5VO(name, kor, eng, mat,0,0.0,'0');
+        sj = new SungJukV5VO(name, kor, eng, mat,0,0.0,'0');
         // 총점, 평균. 학점을 계산
         computeSungJuk(sj);
         // 처리된 성적데이터를 동적배열에 저장
@@ -44,7 +47,7 @@ public class SungJukV8Service extends SungJukV8GenericService {
      * 저장된 성적 데이터 중에서 번호, 이름, 국어, 영어, 수학만 뽑아서 리스트형태로 출력
      */
     public void readSungJuk() {
-        String fmt = "이름 : %s, 국어 : %d, 영어 : %d,1 수학 : %d\n";
+        String fmt = "이름 : %s, 국어 : %d, 영어 : %d, 수학 : %d\n";
         //동적배열에 저장된 데이터들을 출력하기 위해 각 요소를 순회할 수 있도록 Iterrator 객체 선언
         Iterator<SungJukV5VO> iter = sjdata.iterator();
         //StringBuilder dout = new StringBuilder();

@@ -17,7 +17,7 @@ public class EmployeeVO {
     private int mgrid;
     private int deptid;
 
-    public EmployeeVO() {
+    public EmployeeVO(String s, String[] strings) {
     }
 
     public EmployeeVO(int empno, String fname, String lname, String email, String phone, String hdate, String jobid, int sal, double comm, int mgrid, int deptid) {
